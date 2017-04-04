@@ -28,8 +28,4 @@ object frmProduto: TfrmProduto
       end
     end
   end
-  object FDConnection1: TFDConnection
-    Left = 360
-    Top = 88
-  end
 end

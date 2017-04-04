@@ -29,7 +29,16 @@ object frmProduto: TfrmProduto
     end
   end
   object FDConnection1: TFDConnection
-    Left = 360
-    Top = 88
+    Left = 264
+    Top = 160
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 264
+    Top = 224
+  end
+  object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
+    Left = 208
+    Top = 208
   end
 end

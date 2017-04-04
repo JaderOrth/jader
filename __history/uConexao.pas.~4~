@@ -1,0 +1,24 @@
+unit uConexao;
+
+interface
+
+uses
+  System.Classes, System.SysUtils,
+  FireDAC.Comp.Client, FireDAC.Comp.UI, FireDAC.Phys.MySQL, FireDAC.Stan.Def,
+  FireDAC.VCLUI.Wait, FireDAC.Stan.Async;
+
+type
+  TConexao = class(TFDConnection)
+  private
+    oWaitCursor: TFDGUIxWaitCursor;
+    oDriverLink: TFDPhysMySQLDriverLink;
+  public
+
+
+
+
+  end;
+
+implementation
+
+end.

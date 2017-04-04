@@ -17,42 +17,20 @@ object frmEstado: TfrmEstado
   PixelsPerInch = 96
   TextHeight = 13
   object pcListagem: TPageControl
-    Left = 0
-    Top = 0
-    Width = 609
-    Height = 280
+    Left = 144
+    Top = 8
+    Width = 289
+    Height = 193
     ActivePage = tsListagem
-    Align = alClient
     TabOrder = 0
-    ExplicitLeft = 144
-    ExplicitTop = 8
-    ExplicitWidth = 289
-    ExplicitHeight = 193
     object tsListagem: TTabSheet
       Caption = '  &Listagem   '
-      ExplicitWidth = 281
-      ExplicitHeight = 165
-      object DBGrid1: TDBGrid
-        Left = 0
-        Top = 0
-        Width = 601
-        Height = 252
-        Align = alClient
-        TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-      end
     end
     object tsCadastro: TTabSheet
       Caption = '  &Cadastro   '
       ImageIndex = 1
       ExplicitLeft = 52
       ExplicitTop = 0
-      ExplicitWidth = 281
-      ExplicitHeight = 165
     end
   end
   object Panel1: TPanel
