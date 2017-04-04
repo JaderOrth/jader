@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/03/14 15:10:55.000.864,=C:\Users\Jader\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/04/03 15:40:12.544,=C:\Users\Jader\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/04/03 15:41:23.059,C:\Users\Jader\Documents\GitHub\jader\uInicial.dfm=C:\Users\Jader\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2017/04/03 15:41:23.059,C:\Users\Jader\Documents\GitHub\jader\uInicial.pas=C:\Users\Jader\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/04/03 15:41:27.197,C:\Users\Jader\Documents\GitHub\jader\uProduto.dproj=C:\Users\Jader\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2017/04/03 16:08:55.735,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/03 16:09:30.554,C:\Users\Jader\Documents\GitHub\jader\uEstado.dfm=C:\Users\Jader\Documents\GitHub\jader\Unit1.dfm</Transaction>
+    <Transaction>2017/04/03 16:09:30.554,C:\Users\Jader\Documents\GitHub\jader\uEstado.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
