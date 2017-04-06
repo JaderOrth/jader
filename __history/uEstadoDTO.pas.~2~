@@ -1,0 +1,20 @@
+unit uEstadoDTO;
+
+interface
+
+type
+  TEstadoTDO = class
+  private
+    FIdEstado: Integer;
+    FUF: String;
+    FNome: String;
+
+  public
+    property IdEstado: Integer read FIdEstado write FIdEstado;
+    property UF: String read FUF write FUF;
+    property Nome: String read FNome write FNome;
+  end;
+
+implementation
+
+end.

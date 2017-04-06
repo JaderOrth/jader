@@ -1,0 +1,33 @@
+unit uMunicipio;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  Vcl.ComCtrls;
+
+type
+  TfrmMunicipio = class(TForm)
+    PageControl1: TPageControl;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    btnFechar: TBitBtn;
+    btnExcluir: TBitBtn;
+    btnEditar: TBitBtn;
+    btnSalvar: TBitBtn;
+    btnInserir: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMunicipio: TfrmMunicipio;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -7,9 +7,9 @@ uses
   uConexao;
 
 type
-  TConexaosingleton = class
+  TConexaoSingleton = class
   private
-    class var oConexao = TConexao;
+    class var oConexao: TConexao;
   public
     class function GetConexao: TConexao;
   end;
@@ -18,7 +18,7 @@ implementation
 
 { TConexaosingleton }
 
-class function TConexaosingleton.GetConexao: TConexao;
+class function TConexaoSingleton.GetConexao: TConexao;
 begin
   if (not(Assigned(oConexao))) then
     oConexao := TConexao.Create(nil);
@@ -29,7 +29,7 @@ end;
 initialization
 
 finalization
-  if (Assigned(TConexaosingleton.oConexao)) then
-    FreeAndNil(TConexaosingleton.oConexao);
+  if (Assigned(TConexaoSingleton.oConexao)) then
+    FreeAndNil(TConexaoSingleton.oConexao);
 
 end.

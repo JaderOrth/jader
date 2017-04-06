@@ -13,10 +13,8 @@ type
     MainMenu1: TMainMenu;
     Cadastro1: TMenuItem;
     Estado1: TMenuItem;
-    Municpio1: TMenuItem;
     procedure Estado1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure Municpio1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,7 +27,7 @@ var
 implementation
 
 uses
-  uEstado, uMunicipio;
+  uEstado;
 
 {$R *.dfm}
 
@@ -43,13 +41,6 @@ end;
 procedure TfrmProduto.FormCreate(Sender: TObject);
 begin
   ReportMemoryLeaksOnShutdown := true;
-end;
-
-procedure TfrmProduto.Municpio1Click(Sender: TObject);
-begin
-  if (not(Assigned(frmMunicipio))) then
-    frmMunicipio := TfrmMunicipio.Create(self);
-  frmMunicipio.Show;
 end;
 
 end.

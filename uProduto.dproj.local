@@ -9,9 +9,24 @@
     <Transaction>2017/04/03 16:08:55.000.735,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
     <Transaction>2017/04/03 16:09:30.000.554,C:\Users\Jader\Documents\GitHub\jader\Unit1.dfm=C:\Users\Jader\Documents\GitHub\jader\uEstado.dfm</Transaction>
     <Transaction>2017/04/03 16:09:30.000.554,C:\Users\Jader\Documents\GitHub\jader\Unit1.pas=C:\Users\Jader\Documents\GitHub\jader\uEstado.pas</Transaction>
-    <Transaction>2017/04/04 11:05:44.331,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
-    <Transaction>2017/04/04 11:05:51.069,C:\Users\Jader\Documents\GitHub\jader\uConexao.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
-    <Transaction>2017/04/04 11:32:26.087,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
-    <Transaction>2017/04/04 11:32:46.503,C:\Users\Jader\Documents\GitHub\jader\uClassConexaoSingleton.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/04 11:05:44.000.331,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/04 11:05:51.000.069,C:\Users\Jader\Documents\GitHub\jader\uConexao.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/04 11:32:26.000.087,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/04 11:32:46.000.503,C:\Users\Jader\Documents\GitHub\jader\uClassConexaoSingleton.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/04 15:15:55.000.579,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/04 15:16:13.000.633,C:\Users\Jader\Documents\GitHub\jader\uClassEstadoControler.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/04 15:18:31.000.947,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/04 15:18:40.000.724,C:\Users\Jader\Documents\GitHub\jader\uClassEstadoModel.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/04 15:19:08.000.199,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/04 15:19:24.000.631,C:\Users\Jader\Documents\GitHub\jader\uEstadoDTO.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/06 09:45:45.352,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/06 09:45:52.816,C:\Users\Jader\Documents\GitHub\jader\uMunicipio.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/06 09:45:52.816,C:\Users\Jader\Documents\GitHub\jader\uMunicipio.dfm=C:\Users\Jader\Documents\GitHub\jader\Unit1.dfm</Transaction>
+    <Transaction>2017/04/06 11:12:48.949,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/06 11:13:14.561,C:\Users\Jader\Documents\GitHub\jader\uClassMunicipioDTO.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/06 11:26:13.781,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/06 11:26:23.362,C:\Users\Jader\Documents\GitHub\jader\uClassMunicipioControler.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/06 11:30:05.245,=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
+    <Transaction>2017/04/06 11:30:18.768,C:\Users\Jader\Documents\GitHub\jader\uClassMunicipioModel.pas=C:\Users\Jader\Documents\GitHub\jader\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

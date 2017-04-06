@@ -47,7 +47,6 @@ object frmEstado: TfrmEstado
         Height = 42
         Caption = '&Excluir'
         TabOrder = 1
-        OnClick = btnExcluirClick
       end
       object btnEditar: TBitBtn
         Left = 176
@@ -83,7 +82,7 @@ object frmEstado: TfrmEstado
     Top = 0
     Width = 510
     Height = 218
-    ActivePage = tsListagem
+    ActivePage = tsCadastro
     Align = alClient
     TabOrder = 1
     object tsListagem: TTabSheet

@@ -27,10 +27,6 @@ object frmProduto: TfrmProduto
         Caption = 'Estado'
         OnClick = Estado1Click
       end
-      object Municpio1: TMenuItem
-        Caption = 'Munic'#237'pio'
-        OnClick = Municpio1Click
-      end
     end
   end
 end

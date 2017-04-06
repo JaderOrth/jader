@@ -39,11 +39,10 @@ end;
 
 destructor TConexao.Destroy;
 begin
-  Connected := false;
-  if (Assigned(oWaitCursor)) then
+  if (not(Assigned(oWaitCursor))) then
     FreeAndNil(oWaitCursor);
 
-  if (Assigned(oDriverLink)) then
+  if (not(Assigned(oDriverLink))) then
     FreeAndNil(oDriverLink);
   inherited;
 end;

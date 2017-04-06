@@ -55,10 +55,6 @@ begin
     ShowMessage('Excluido com sucesso!')
   else
     raise Exception.Create('Erro ao Excluir!');
-  oEstadoControler.Limpar(oEstadoDTO);
-  edtListagemID.Text := '';
-  edtListagemUF.Text := oEstadoDTO.UF;
-  edtListagemNome.Text := oEstadoDTO.Nome;
 end;
 
 procedure TfrmEstado.btnFecharClick(Sender: TObject);
@@ -76,6 +72,11 @@ begin
   PageControl1.ActivePage := tsCadastro;
   edtUF.Text := oEstadoDTO.UF;
   edtNome.Text := oEstadoDTO.Nome;
+  { tsCadastro.Enabled := true;
+    btnSalvar.Enabled := true;
+    btnEditar.Enabled := false;
+    btnExcluir.Enabled := false;
+    tsListagem.Enabled := false; }
 end;
 
 procedure TfrmEstado.btnSalvarClick(Sender: TObject);
@@ -87,7 +88,6 @@ begin
   PageControl1.ActivePage := tsListagem;
   if (oEstadoControler.Selecionar(oEstadoDTO)) then
   begin
-    edtListagemID.Text := IntToStr(oEstadoDTO.IdEstado);
     edtListagemUF.Text := oEstadoDTO.UF;
     edtListagemNome.Text := oEstadoDTO.Nome;
   end;

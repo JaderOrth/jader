@@ -10,9 +10,7 @@ uses
   uClassEstadoModel in 'uClassEstadoModel.pas',
   uEstadoDTO in 'uEstadoDTO.pas',
   uMunicipio in 'uMunicipio.pas' {frmMunicipio},
-  uClassMunicipioDTO in 'uClassMunicipioDTO.pas',
-  uClassMunicipioControler in 'uClassMunicipioControler.pas',
-  uClassMunicipioModel in 'uClassMunicipioModel.pas';
+  uClassMunicipioDTO in 'uClassMunicipioDTO.pas';
 
 {$R *.res}
 

@@ -15,7 +15,6 @@ object frmProduto: TfrmProduto
   OldCreateOrder = False
   Visible = True
   WindowState = wsMaximized
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object MainMenu1: TMainMenu
@@ -26,10 +25,6 @@ object frmProduto: TfrmProduto
       object Estado1: TMenuItem
         Caption = 'Estado'
         OnClick = Estado1Click
-      end
-      object Municpio1: TMenuItem
-        Caption = 'Munic'#237'pio'
-        OnClick = Municpio1Click
       end
     end
   end

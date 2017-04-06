@@ -24,6 +24,8 @@ object frmEstado: TfrmEstado
     Height = 55
     Align = alBottom
     TabOrder = 0
+    ExplicitTop = 280
+    ExplicitWidth = 609
     object Panel2: TPanel
       Left = 72
       Top = 1
@@ -47,7 +49,6 @@ object frmEstado: TfrmEstado
         Height = 42
         Caption = '&Excluir'
         TabOrder = 1
-        OnClick = btnExcluirClick
       end
       object btnEditar: TBitBtn
         Left = 176
@@ -86,8 +87,13 @@ object frmEstado: TfrmEstado
     ActivePage = tsListagem
     Align = alClient
     TabOrder = 1
+    ExplicitTop = -5
+    ExplicitWidth = 374
     object tsListagem: TTabSheet
       Caption = '  &Listagem  '
+      ExplicitLeft = 5
+      ExplicitTop = 23
+      ExplicitWidth = 366
       object edtListagemNome: TLabeledEdit
         Left = 19
         Top = 137
@@ -117,12 +123,14 @@ object frmEstado: TfrmEstado
         EditLabel.Height = 13
         EditLabel.Caption = 'ID:'
         TabOrder = 2
-        OnExit = edtListagemIDExit
+        OnChange = edtListagemIDChange
       end
     end
     object tsCadastro: TTabSheet
       Caption = '  &Cadastro  '
       ImageIndex = 1
+      ExplicitWidth = 601
+      ExplicitHeight = 252
       object edtUF: TLabeledEdit
         Left = 19
         Top = 43

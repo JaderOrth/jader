@@ -1,0 +1,23 @@
+unit uClassMunicipioDTO;
+
+interface
+
+uses
+  uEstadoDTO;
+
+type
+  tMunicipioDTO = class
+  private
+    FIdMunicipio: Integer;
+    FCodigoIBGE: Integer;
+    FNome: String;
+    FCEP: Currency;
+    FDDD: Integer;
+
+  public
+
+  end;
+
+implementation
+
+end.

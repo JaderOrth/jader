@@ -1,0 +1,87 @@
+unit uClassEstadoModel;
+
+interface
+
+uses
+  FireDAC.Comp.Client, Data.DB, System.SysUtils, FireDAC.DApt,
+  uEstadoDTO, uClassConexaoSingleton;
+
+type
+  TEstadoModel = class
+  private
+    oQuery: TFDQuery;
+  public
+    function Update(const AEstado: TEstadoTDO): Boolean;
+    function BuscarID: Integer;
+    function Inserir(AEstado: TEstadoTDO): Boolean;
+    function select(AEstado: TEstadoTDO): Boolean;
+    function Delet(AEstado: TEstadoTDO): Boolean;
+
+    constructor Create;
+    destructor Destroy;  override;
+  end;
+
+implementation
+
+{ TEstadoModel }
+
+function TEstadoModel.BuscarID: Integer;
+begin
+  oQuery.Open('SELECT MAX(idEstado) as id FROM Estado');
+  Result := oQuery.FieldByName('id').AsInteger + 1;
+end;
+
+constructor TEstadoModel.Create;
+begin
+  oQuery := TFDQuery.Create(nil);
+
+  oQuery.Connection := TConexaoSingleton.GetConexao;
+end;
+
+function TEstadoModel.Delet(AEstado: TEstadoTDO): Boolean;
+begin
+  Result := oQuery.ExecSQL('delete from Estado where idEstado = '+
+                           IntToStr(AEstado.IdEstado)) > 0;
+end;
+
+destructor TEstadoModel.Destroy;
+begin
+  if (Assigned(oQuery)) then
+    FreeAndNil(oQuery);
+
+  inherited;
+end;
+
+function TEstadoModel.Inserir(AEstado: TEstadoTDO): Boolean;
+begin
+  Result := oQuery.ExecSQL('Insert into Estado(idEstado, UF, Nome) values('+
+          IntToStr(AEstado.IdEstado)+', '+
+          QuotedStr(AEstado.UF)+', '+
+          QuotedStr(AEstado.Nome)+')') > 0;
+end;
+
+function TEstadoModel.select(AEstado: TEstadoTDO): Boolean;
+begin
+  Result := False;
+  oQuery.Open('select UF, Nome from Estado where idEstado = '
+              +IntToStr(AEstado.IdEstado));
+  if (not(oQuery.IsEmpty)) then
+  begin
+    AEstado.UF := oQuery.FieldByName('UF').AsString;
+    AEstado.Nome := oQuery.FieldByName('Nome').AsString;
+    Result := true;
+  end;
+end;
+
+function TEstadoModel.Update(const AEstado: TEstadoTDO): Boolean;
+var
+  sSql: String;
+begin
+  sSql := 'update Estado set UF = '+
+          QuotedStr(AEstado.UF)+', Nome = '+
+          QuotedStr(AEstado.Nome)+'where idEstado = '+IntToStr(AEstado.IdEstado);
+  Result := oQuery.ExecSQL(sSql) > 0;
+end;
+
+
+end.

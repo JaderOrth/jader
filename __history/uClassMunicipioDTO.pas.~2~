@@ -1,0 +1,17 @@
+unit uClassMunicipioDTO;
+
+interface
+
+
+type
+  tMunicipioDTO = class
+  private
+
+
+  public
+
+  end;
+
+implementation
+
+end.

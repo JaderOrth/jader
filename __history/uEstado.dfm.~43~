@@ -47,7 +47,6 @@ object frmEstado: TfrmEstado
         Height = 42
         Caption = '&Excluir'
         TabOrder = 1
-        OnClick = btnExcluirClick
       end
       object btnEditar: TBitBtn
         Left = 176
