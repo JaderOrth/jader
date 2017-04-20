@@ -1,146 +1,84 @@
-object frmEstado: TfrmEstado
-  Left = 0
-  Top = 0
-  Caption = 'Cadastro do Estado'
-  ClientHeight = 273
-  ClientWidth = 510
-  Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
-  Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Tahoma'
-  Font.Style = []
-  FormStyle = fsMDIChild
-  OldCreateOrder = False
-  Visible = True
-  OnClose = FormClose
+inherited frmEstado: TfrmEstado
+  Caption = 'Cadastro de Estados'
+  ClientWidth = 462
   OnCreate = FormCreate
+  ExplicitWidth = 478
   PixelsPerInch = 96
-  TextHeight = 13
-  object Panel1: TPanel
-    Left = 0
-    Top = 218
-    Width = 510
-    Height = 55
-    Align = alBottom
-    TabOrder = 0
-    object Panel2: TPanel
-      Left = 72
-      Top = 1
-      Width = 437
-      Height = 53
-      Align = alRight
-      TabOrder = 0
-      object btnFechar: TBitBtn
-        Left = 345
-        Top = 6
-        Width = 76
-        Height = 42
-        Caption = '&Fechar'
-        TabOrder = 0
-        OnClick = btnFecharClick
-      end
-      object btnExcluir: TBitBtn
-        Left = 261
-        Top = 6
-        Width = 76
-        Height = 42
-        Caption = '&Excluir'
-        TabOrder = 1
+  TextHeight = 18
+  inherited Panel1: TPanel
+    Width = 462
+    ExplicitWidth = 462
+    inherited Panel2: TPanel
+      Left = -116
+      ExplicitLeft = -116
+      inherited btnExcluir: TBitBtn
         OnClick = btnExcluirClick
-      end
-      object btnEditar: TBitBtn
-        Left = 176
-        Top = 6
-        Width = 76
-        Height = 42
-        Caption = '&Editar'
-        TabOrder = 2
-        OnClick = btnEditarClick
-      end
-      object btnSalvar: TBitBtn
-        Left = 94
-        Top = 5
-        Width = 76
-        Height = 42
-        Caption = '&Salvar'
-        TabOrder = 3
-        OnClick = btnSalvarClick
-      end
-      object btnInserir: TBitBtn
-        Left = 12
-        Top = 5
-        Width = 76
-        Height = 42
-        Caption = '&Inserir'
-        TabOrder = 4
-        OnClick = btnInserirClick
       end
     end
   end
-  object PageControl1: TPageControl
-    Left = 0
-    Top = 0
-    Width = 510
-    Height = 218
-    ActivePage = tsListagem
-    Align = alClient
-    TabOrder = 1
-    object tsListagem: TTabSheet
-      Caption = '  &Listagem  '
-      object edtListagemNome: TLabeledEdit
-        Left = 19
-        Top = 137
-        Width = 222
-        Height = 21
-        EditLabel.Width = 31
-        EditLabel.Height = 13
-        EditLabel.Caption = 'Nome:'
-        TabOrder = 0
-      end
-      object edtListagemUF: TLabeledEdit
-        Left = 19
-        Top = 83
-        Width = 118
-        Height = 21
-        EditLabel.Width = 17
-        EditLabel.Height = 13
-        EditLabel.Caption = 'UF:'
-        TabOrder = 1
-      end
-      object edtListagemID: TLabeledEdit
-        Left = 19
-        Top = 33
-        Width = 118
-        Height = 21
-        EditLabel.Width = 15
-        EditLabel.Height = 13
+  inherited PageControl1: TPageControl
+    Width = 462
+    ExplicitWidth = 462
+    inherited tsListagem: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 29
+      ExplicitWidth = 454
+      ExplicitHeight = 303
+      object edtIdEstado: TLabeledEdit
+        Left = 11
+        Top = 40
+        Width = 121
+        Height = 26
+        EditLabel.Width = 21
+        EditLabel.Height = 18
         EditLabel.Caption = 'ID:'
-        TabOrder = 2
-        OnExit = edtListagemIDExit
-      end
-    end
-    object tsCadastro: TTabSheet
-      Caption = '  &Cadastro  '
-      ImageIndex = 1
-      object edtUF: TLabeledEdit
-        Left = 19
-        Top = 43
-        Width = 118
-        Height = 21
-        EditLabel.Width = 17
-        EditLabel.Height = 13
-        EditLabel.Caption = 'UF:'
         TabOrder = 0
+        OnExit = edtIdEstadoExit
       end
       object edtNome: TLabeledEdit
-        Left = 19
-        Top = 99
-        Width = 222
-        Height = 21
-        EditLabel.Width = 31
-        EditLabel.Height = 13
+        Left = 11
+        Top = 104
+        Width = 311
+        Height = 26
+        EditLabel.Width = 44
+        EditLabel.Height = 18
         EditLabel.Caption = 'Nome:'
+        TabOrder = 1
+      end
+      object edtUF: TLabeledEdit
+        Left = 195
+        Top = 40
+        Width = 127
+        Height = 26
+        EditLabel.Width = 23
+        EditLabel.Height = 18
+        EditLabel.Caption = 'UF:'
+        TabOrder = 2
+      end
+    end
+    inherited tsCadastro: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 29
+      ExplicitWidth = 454
+      ExplicitHeight = 303
+      object edtEstadoNome: TLabeledEdit
+        Left = 19
+        Top = 112
+        Width = 311
+        Height = 26
+        EditLabel.Width = 44
+        EditLabel.Height = 18
+        EditLabel.Caption = 'Nome:'
+        TabOrder = 0
+      end
+      object edtEstadoUF: TLabeledEdit
+        Left = 19
+        Top = 40
+        Width = 127
+        Height = 26
+        EditLabel.Width = 23
+        EditLabel.Height = 18
+        EditLabel.Caption = 'UF:'
         TabOrder = 1
       end
     end

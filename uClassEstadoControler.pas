@@ -3,59 +3,49 @@ unit uClassEstadoControler;
 interface
 
 uses
-  System.SysUtils,
-  uEstadoDTO, uClassEstadoModel;
+  System.sysUtils,
+  uClassEstadoModel, uEstadoDTO;
 
 type
   TEstadoControler = class
   private
-    oEstadoDTO: TEstadoTDO;
     oEstadoModel: TEstadoModel;
   public
-    function Salvar(const AEstado: TEstadoTDO): Boolean;
-    function Selecionar(var AEstado: TEstadoTDO): Boolean;
-    function Limpar(var AEstado: TEstadoTDO): Boolean;
-    function Excluir(const AEstado: TEstadoTDO): Boolean;
-
+    function Salvar(const AEstado: TEstadoDTO): Boolean;
+    function BuscarValor(var AEstado: TEstadoDTO): Boolean;
+    function Excluir(const idEstado: Integer): Boolean;
 
     constructor Create;
     destructor Destroy; override;
   end;
-
 implementation
 
 { TEstadoControler }
 
+function TEstadoControler.BuscarValor(var AEstado: TEstadoDTO): Boolean;
+begin
+  Result := oEstadoModel.BuscarValor(AEstado);
+end;
+
 constructor TEstadoControler.Create;
 begin
-  oEstadoDTO := TEstadoTDO.Create;
-
-  oEstadoModel := TEstadoModel.Create;
+  if (not(Assigned(oEstadoModel))) then
+    oEstadoModel := TEstadoModel.Create;
 end;
 
 destructor TEstadoControler.Destroy;
 begin
-  if (Assigned(oEstadoDTO)) then
-    FreeAndNil(oEstadoDTO);
-
   if (Assigned(oEstadoModel)) then
     FreeAndNil(oEstadoModel);
   inherited;
 end;
 
-function TEstadoControler.Excluir(const AEstado: TEstadoTDO): Boolean;
+function TEstadoControler.Excluir(const idEstado: Integer): Boolean;
 begin
-  Result := oEstadoModel.Delet(AEstado);
+  Result := oEstadoModel.Excluir(idEstado);
 end;
 
-function TEstadoControler.Limpar(var AEstado: TEstadoTDO): Boolean;
-begin
-  AEstado.IdEstado := 0;
-  AEstado.UF := EmptyStr;
-  AEstado.Nome := EmptyStr;
-end;
-
-function TEstadoControler.Salvar(const AEstado: TEstadoTDO): Boolean;
+function TEstadoControler.Salvar(const AEstado: TEstadoDTO): Boolean;
 begin
   if (AEstado.IdEstado > 0) then
   begin
@@ -64,13 +54,8 @@ begin
   else
   begin
     AEstado.IdEstado := oEstadoModel.BuscarID;
-    Result := oEstadoModel.Inserir(AEstado);
+    Result := oEstadoModel.Insert(AEstado);
   end;
-end;
-
-function TEstadoControler.Selecionar(var AEstado: TEstadoTDO): Boolean;
-begin
-  Result := oEstadoModel.select(AEstado);
 end;
 
 end.

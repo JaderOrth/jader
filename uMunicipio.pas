@@ -3,42 +3,36 @@ unit uMunicipio;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
-  Vcl.ComCtrls,
-  uClassMunicipioDTO, uClassMunicipioControler;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadastroBase, Vcl.ComCtrls,
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  uMunicipioDTO, uMunicpioControler;
 
 type
-  TfrmMunicipio = class(TForm)
-    Panel1: TPanel;
-    Panel2: TPanel;
-    btnFechar: TBitBtn;
-    btnExcluir: TBitBtn;
-    btnEditar: TBitBtn;
-    btnSalvar: TBitBtn;
-    btnInserir: TBitBtn;
-    PageControl1: TPageControl;
-    tsListagem: TTabSheet;
-    edtListagemNome: TLabeledEdit;
-    edtListagemIBGE: TLabeledEdit;
-    edtListagemIDMunicipio: TLabeledEdit;
-    tsCadastro: TTabSheet;
-    edtListagemCep: TLabeledEdit;
-    edtListagemDDD: TLabeledEdit;
-    LabeledEdit1: TLabeledEdit;
-    LabeledEdit2: TLabeledEdit;
-    LabeledEdit3: TLabeledEdit;
-    LabeledEdit5: TLabeledEdit;
+  TfrmMunicipio = class(TfrmBase)
+    edtIdMunicipio: TLabeledEdit;
+    cmbEstado: TComboBox;
+    edtNome: TLabeledEdit;
+    edtCEP: TLabeledEdit;
+    edtCodigoIBGE: TLabeledEdit;
+    edtDDD: TLabeledEdit;
+    Label1: TLabel;
+    cbmCadEstado: TComboBox;
+    edtCadDDD: TLabeledEdit;
+    edtCadCEP: TLabeledEdit;
+    edtCadNome: TLabeledEdit;
+    edtCadCodigoIBGE: TLabeledEdit;
+    Label2: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure btnInserirClick(Sender: TObject);
-    procedure btnSalvarClick(Sender: TObject);
-    procedure btnEditarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure edtIdMunicipioExit(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
   private
+    { Private declarations }
     oMunicipioDTO: TMunicipioDTO;
     oMunicipioControler: TMunicipioControler;
-    { Private declarations }
   public
     { Public declarations }
   end;
@@ -50,19 +44,55 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmMunicipio.btnEditarClick(Sender: TObject);
+procedure TfrmMunicipio.btnAlterarClick(Sender: TObject);
 begin
-  PageControl1.ActivePage := tsCadastro;
+  inherited;
+  if oMunicipioDTO.idMunicipio <> 0 then
+  begin
+    edtCadNome.Text := oMunicipioDTO.Nome;
+    edtCadCodigoIBGE.Text := IntToStr(oMunicipioDTO.CodigoIBGE);
+    edtCadDDD.Text := IntToStr(oMunicipioDTO.DDD);
+    edtCadCEP.Text := CurrToStr(oMunicipioDTO.CEP);
+    cbmCadEstado.ItemIndex := cbmCadEstado.Items.IndexOfObject(TObject(oMunicipioDTO.Estado));
+  end;
 end;
 
-procedure TfrmMunicipio.btnInserirClick(Sender: TObject);
+procedure TfrmMunicipio.btnExcluirClick(Sender: TObject);
 begin
-  PageControl1.ActivePage := tsCadastro;
+  inherited;
+  oMunicipioDTO.idMunicipio := StrToInt(edtIdMunicipio.Text);
+  if (oMunicipioControler.Deletar(oMunicipioDTO.idMunicipio)) then
+    ShowMessage('Excluido com sucesso!');
 end;
 
 procedure TfrmMunicipio.btnSalvarClick(Sender: TObject);
 begin
-  PageControl1.ActivePage := tsListagem;
+  inherited;
+  oMunicipioDTO.Nome := edtCadNome.Text;
+  oMunicipioDTO.CodigoIBGE := StrToIntDef(edtCadCodigoIBGE.Text, 0);
+  oMunicipioDTO.CEP := StrToCurrDef(edtCadCEP.Text, 0);
+  oMunicipioDTO.DDD := StrToIntDef(edtCadDDD.Text, 0);
+  oMunicipioDTO.Estado := Integer(cbmCadEstado.Items.Objects[cbmCadEstado.ItemIndex]);
+  oMunicipioControler.Salvar(oMunicipioDTO);
+end;
+
+procedure TfrmMunicipio.edtIdMunicipioExit(Sender: TObject);
+begin
+  inherited;
+  oMunicipioDTO.idMunicipio := StrToIntDef(edtIdMunicipio.Text, 0);
+  if (oMunicipioDTO.idMunicipio <> 0) then
+  begin
+    if (oMunicipioControler.Selecionar(oMunicipioDTO)) then
+    begin
+      edtNome.Text :=       oMunicipioDTO.Nome;
+      edtCEP.Text :=        CurrToStr(oMunicipioDTO.CEP);
+      edtCodigoIBGE.Text := IntToStr(oMunicipioDTO.CodigoIBGE);
+      edtDDD.Text :=        IntToStr(oMunicipioDTO.DDD);
+      cmbEstado.ItemIndex := cmbEstado.Items.IndexOfObject(TObject(oMunicipioDTO.Estado));
+    end
+    else
+      raise Exception.Create('ID Não cadastrado!');
+  end;
 end;
 
 procedure TfrmMunicipio.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -72,14 +102,20 @@ begin
 
   if (Assigned(oMunicipioControler)) then
     FreeAndNil(oMunicipioControler);
-  Action := caFree;
+
   frmMunicipio := nil;
+  inherited;
 end;
 
 procedure TfrmMunicipio.FormCreate(Sender: TObject);
 begin
+  inherited;
   oMunicipioDTO := TMunicipioDTO.Create;
+
   oMunicipioControler := TMunicipioControler.Create;
+
+  oMunicipioControler.SelecionarEstado(cmbEstado);
+  oMunicipioControler.SelecionarEstado(cbmCadEstado);
 end;
 
 end.

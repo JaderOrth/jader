@@ -1,194 +1,157 @@
-object frmMunicipio: TfrmMunicipio
-  Left = 97
-  Top = 55
-  Caption = 'Cadastro de Munic'#237'pio'
-  ClientHeight = 282
-  ClientWidth = 432
-  Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
-  Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Tahoma'
-  Font.Style = []
-  FormStyle = fsMDIChild
-  OldCreateOrder = False
-  Position = poDesigned
-  Visible = True
-  OnClose = FormClose
+inherited frmMunicipio: TfrmMunicipio
+  Caption = 'Cadastro de Municipios'
+  ClientWidth = 483
   OnCreate = FormCreate
+  ExplicitWidth = 499
   PixelsPerInch = 96
-  TextHeight = 13
-  object Panel1: TPanel
-    Left = 0
-    Top = 227
-    Width = 432
-    Height = 55
-    Align = alBottom
-    TabOrder = 0
-    ExplicitTop = 218
-    ExplicitWidth = 510
-    object Panel2: TPanel
-      Left = -6
-      Top = 1
-      Width = 437
-      Height = 53
-      Align = alRight
-      TabOrder = 0
-      ExplicitLeft = 72
-      object btnFechar: TBitBtn
-        Left = 345
-        Top = 6
-        Width = 76
-        Height = 42
-        Caption = '&Fechar'
-        TabOrder = 0
-      end
-      object btnExcluir: TBitBtn
-        Left = 261
-        Top = 6
-        Width = 76
-        Height = 42
-        Caption = '&Excluir'
-        TabOrder = 1
-      end
-      object btnEditar: TBitBtn
-        Left = 176
-        Top = 6
-        Width = 76
-        Height = 42
-        Caption = '&Editar'
-        TabOrder = 2
-        OnClick = btnEditarClick
-      end
-      object btnSalvar: TBitBtn
-        Left = 94
-        Top = 5
-        Width = 76
-        Height = 42
-        Caption = '&Salvar'
+  TextHeight = 18
+  inherited Panel1: TPanel
+    Width = 483
+    ExplicitWidth = 483
+    inherited Panel2: TPanel
+      Left = -95
+      ExplicitLeft = -95
+      inherited btnExcluir: TBitBtn
         TabOrder = 3
-        OnClick = btnSalvarClick
+        OnClick = btnExcluirClick
       end
-      object btnInserir: TBitBtn
-        Left = 12
-        Top = 5
-        Width = 76
-        Height = 42
-        Caption = '&Inserir'
-        TabOrder = 4
-        OnClick = btnInserirClick
+      inherited btnInserir: TBitBtn
+        TabOrder = 1
       end
     end
   end
-  object PageControl1: TPageControl
-    Left = 0
-    Top = 0
-    Width = 432
-    Height = 227
-    ActivePage = tsListagem
-    Align = alClient
-    TabOrder = 1
-    ExplicitWidth = 510
-    ExplicitHeight = 218
-    object tsListagem: TTabSheet
-      Caption = '  &Listagem  '
-      ExplicitWidth = 502
-      ExplicitHeight = 190
-      object edtListagemNome: TLabeledEdit
+  inherited PageControl1: TPageControl
+    Width = 483
+    ExplicitWidth = 483
+    inherited tsListagem: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 29
+      ExplicitWidth = 475
+      ExplicitHeight = 303
+      object Label1: TLabel
         Left = 19
-        Top = 73
-        Width = 267
-        Height = 21
-        EditLabel.Width = 31
-        EditLabel.Height = 13
-        EditLabel.Caption = 'Nome:'
-        TabOrder = 0
+        Top = 189
+        Width = 49
+        Height = 18
+        Caption = 'Estado:'
       end
-      object edtListagemIBGE: TLabeledEdit
-        Left = 123
-        Top = 25
-        Width = 163
-        Height = 21
-        EditLabel.Width = 27
-        EditLabel.Height = 13
-        EditLabel.Caption = 'IBGE:'
-        TabOrder = 1
-      end
-      object edtListagemIDMunicipio: TLabeledEdit
+      object edtIdMunicipio: TLabeledEdit
         Left = 19
-        Top = 25
-        Width = 78
-        Height = 21
-        EditLabel.Width = 15
-        EditLabel.Height = 13
+        Top = 40
+        Width = 121
+        Height = 26
+        EditLabel.Width = 21
+        EditLabel.Height = 18
         EditLabel.Caption = 'ID:'
+        TabOrder = 0
+        OnExit = edtIdMunicipioExit
+      end
+      object cmbEstado: TComboBox
+        Left = 19
+        Top = 213
+        Width = 205
+        Height = 26
+        TabOrder = 5
+      end
+      object edtNome: TLabeledEdit
+        Left = 19
+        Top = 96
+        Width = 352
+        Height = 26
+        EditLabel.Width = 44
+        EditLabel.Height = 18
+        EditLabel.Caption = 'Nome:'
         TabOrder = 2
       end
-      object edtListagemCep: TLabeledEdit
-        Left = 123
-        Top = 111
-        Width = 163
-        Height = 21
-        EditLabel.Width = 23
-        EditLabel.Height = 13
+      object edtCEP: TLabeledEdit
+        Left = 19
+        Top = 152
+        Width = 205
+        Height = 26
+        EditLabel.Width = 30
+        EditLabel.Height = 18
         EditLabel.Caption = 'CEP:'
         TabOrder = 3
       end
-      object edtListagemDDD: TLabeledEdit
-        Left = 19
-        Top = 111
-        Width = 78
-        Height = 21
-        EditLabel.Width = 25
-        EditLabel.Height = 13
+      object edtCodigoIBGE: TLabeledEdit
+        Left = 160
+        Top = 40
+        Width = 211
+        Height = 26
+        EditLabel.Width = 86
+        EditLabel.Height = 18
+        EditLabel.Caption = 'Codigo IBGE:'
+        TabOrder = 1
+      end
+      object edtDDD: TLabeledEdit
+        Left = 246
+        Top = 152
+        Width = 125
+        Height = 26
+        EditLabel.Width = 35
+        EditLabel.Height = 18
         EditLabel.Caption = 'DDD:'
         TabOrder = 4
       end
     end
-    object tsCadastro: TTabSheet
-      Caption = '  &Cadastro  '
-      ImageIndex = 1
-      ExplicitLeft = 6
-      ExplicitTop = 23
-      object LabeledEdit1: TLabeledEdit
-        Left = 131
-        Top = 119
-        Width = 163
-        Height = 21
-        EditLabel.Width = 23
-        EditLabel.Height = 13
-        EditLabel.Caption = 'CEP:'
-        TabOrder = 0
-      end
-      object LabeledEdit2: TLabeledEdit
+    inherited tsCadastro: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 29
+      ExplicitWidth = 475
+      ExplicitHeight = 303
+      object Label2: TLabel
         Left = 27
-        Top = 119
-        Width = 78
-        Height = 21
-        EditLabel.Width = 25
-        EditLabel.Height = 13
+        Top = 195
+        Width = 49
+        Height = 18
+        Caption = 'Estado:'
+      end
+      object cbmCadEstado: TComboBox
+        Left = 27
+        Top = 219
+        Width = 205
+        Height = 26
+        TabOrder = 4
+      end
+      object edtCadDDD: TLabeledEdit
+        Left = 254
+        Top = 160
+        Width = 125
+        Height = 26
+        EditLabel.Width = 35
+        EditLabel.Height = 18
         EditLabel.Caption = 'DDD:'
-        TabOrder = 1
+        TabOrder = 3
       end
-      object LabeledEdit3: TLabeledEdit
+      object edtCadCEP: TLabeledEdit
         Left = 27
-        Top = 81
-        Width = 267
-        Height = 21
-        EditLabel.Width = 31
-        EditLabel.Height = 13
-        EditLabel.Caption = 'Nome:'
+        Top = 160
+        Width = 205
+        Height = 26
+        EditLabel.Width = 30
+        EditLabel.Height = 18
+        EditLabel.Caption = 'CEP:'
         TabOrder = 2
       end
-      object LabeledEdit5: TLabeledEdit
+      object edtCadNome: TLabeledEdit
         Left = 27
-        Top = 33
-        Width = 163
-        Height = 21
-        EditLabel.Width = 27
-        EditLabel.Height = 13
-        EditLabel.Caption = 'IBGE:'
-        TabOrder = 3
+        Top = 104
+        Width = 352
+        Height = 26
+        EditLabel.Width = 44
+        EditLabel.Height = 18
+        EditLabel.Caption = 'Nome:'
+        TabOrder = 1
+      end
+      object edtCadCodigoIBGE: TLabeledEdit
+        Left = 27
+        Top = 40
+        Width = 211
+        Height = 26
+        EditLabel.Width = 86
+        EditLabel.Height = 18
+        EditLabel.Caption = 'Codigo IBGE:'
+        TabOrder = 0
       end
     end
   end

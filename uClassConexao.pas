@@ -1,4 +1,5 @@
-unit uConexao;
+{RESPONSABILIDADE: Conectar com o banco de dados }
+unit uClassConexao;
 
 interface
 
@@ -24,27 +25,31 @@ implementation
 constructor TConexao.Create(AOwner: TComponent);
 begin
   inherited;
+
   oWaitCursor := TFDGUIxWaitCursor.Create(nil);
 
   oDriverLink := TFDPhysMySQLDriverLink.Create(nil);
 
-  Params.DriverID := 'MySQL';
+  Params.DriverID := 'MySql';
   LoginPrompt := False;
   Params.Values['Database'] := 'mydb';
   Params.Values['User_Name'] := 'root';
   Params.Values['Password'] := '';
+  Params.Values['Port'] := '3306';
   Params.Values['Server'] := '127.0.0.1';
-  Connected := true;
+  Connected := True;
 end;
 
 destructor TConexao.Destroy;
 begin
-  Connected := false;
+  Connected := False;
+
   if (Assigned(oWaitCursor)) then
     FreeAndNil(oWaitCursor);
 
   if (Assigned(oDriverLink)) then
     FreeAndNil(oDriverLink);
+
   inherited;
 end;
 

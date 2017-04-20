@@ -1,20 +1,39 @@
 unit uEstadoDTO;
 
 interface
-
 type
-  TEstadoTDO = class
+  TEstadoDTO = class
   private
-    FIdEstado: Integer;
     FUF: String;
+    FIdEstado: Integer;
     FNome: String;
 
-  public
-    property IdEstado: Integer read FIdEstado write FIdEstado;
-    property UF: String read FUF write FUF;
-    property Nome: String read FNome write FNome;
-  end;
+    procedure SetIdEstado(const Value: Integer);
+    procedure SetNome(const Value: String);
+    procedure SetUF(const Value: String);
 
+  public
+    property IdEstado: Integer read FIdEstado write SetIdEstado;
+    property UF: String read FUF write SetUF;
+    property Nome: String read FNome write SetNome;
+  end;
 implementation
+
+{ TEstadoDTO }
+
+procedure TEstadoDTO.SetIdEstado(const Value: Integer);
+begin
+  FIdEstado := Value;
+end;
+
+procedure TEstadoDTO.SetNome(const Value: String);
+begin
+  FNome := Value;
+end;
+
+procedure TEstadoDTO.SetUF(const Value: String);
+begin
+  FUF := Value;
+end;
 
 end.

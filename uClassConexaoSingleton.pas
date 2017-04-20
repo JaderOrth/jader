@@ -3,33 +3,39 @@ unit uClassConexaoSingleton;
 interface
 
 uses
-  System.SysUtils,
-  uConexao;
+  System.sysUtils, uClassConexao;
 
 type
-  TConexaoSingleton = class
+  TConexaoSongleton = class
   private
     class var oConexao: TConexao;
   public
     class function GetConexao: TConexao;
+
   end;
 
 implementation
 
-{ TConexaosingleton }
+{ TConexaoSongleton }
 
-class function TConexaoSingleton.GetConexao: TConexao;
+class function TConexaoSongleton.GetConexao: TConexao;
 begin
-  if (not(Assigned(oConexao))) then
+   if (not(Assigned(oConexao))) then
     oConexao := TConexao.Create(nil);
 
-  Result := oConexao;
+   Result := oConexao;
 end;
 
 initialization
 
 finalization
-  if (Assigned(TConexaoSingleton.oConexao)) then
-    FreeAndNil(TConexaoSingleton.oConexao);
+  if (Assigned(TConexaoSongleton.oConexao)) then
+    FreeAndNil(TConexaoSongleton.oConexao);
+
+end.unit Unit1;
+
+interface
+
+implementation
 
 end.
