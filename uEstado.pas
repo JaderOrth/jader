@@ -38,35 +38,33 @@ implementation
 
 procedure TfrmEstado.btnAlterarClick(Sender: TObject);
 begin
+  if oEstado.IdEstado <> 0 then
+  begin
+    edtEstadoNome.Text := oEstado.Nome;
+    edtEstadoUF.Text   := oEstado.UF;
+  end
+  else
+    raise Exception.Create('Selecione o que deseja Alterar!');
   inherited;
-  edtEstadoNome.Text := oEstado.Nome;
-  edtEstadoUF.Text   := oEstado.UF;
 end;
 
 procedure TfrmEstado.btnExcluirClick(Sender: TObject);
 begin
-  inherited;
   oEstado.IdEstado := StrToIntDef(edtIdEstado.Text, 0);
-  if(MessageDlg('Deseja realmente excluir?', mtConfirmation, mbYesNo, 0) <> mrNo) then
-  begin
-    if oEstado.IdEstado <> 0 then
-    begin
-      oEstadoControler.Excluir(oEstado.IdEstado);
-    end;
-  end;
+  oEstadoControler.Excluir(oEstado.IdEstado);
+  inherited;
 end;
 
 procedure TfrmEstado.btnSalvarClick(Sender: TObject);
 begin
-  inherited;
   oEstado.UF := edtEstadoUF.Text;
   oEstado.Nome := edtEstadoNome.Text;
   oEstadoControler.Salvar(oEstado);
+  inherited;
 end;
 
 procedure TfrmEstado.edtIdEstadoExit(Sender: TObject);
 begin
-  inherited;
   oEstado.IdEstado := StrToIntDef(edtIdEstado.Text, 0);
   if oEstado.IdEstado <> 0 then
   begin
@@ -75,6 +73,7 @@ begin
   end;
   edtNome.Text := oEstado.Nome;
   edtUF.Text := oEstado.UF;
+  inherited;
 end;
 
 procedure TfrmEstado.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -84,6 +83,7 @@ begin
 
   if (Assigned(oEstadoControler)) then
     FreeAndNil(oEstadoControler);
+
   inherited;
   frmEstado := nil;
 end;
@@ -91,11 +91,10 @@ end;
 procedure TfrmEstado.FormCreate(Sender: TObject);
 begin
   inherited;
-  if (not(Assigned(oEstado))) then
-    oEstado := TEstadoDTO.Create;
 
-  if (not(Assigned(oEstadoControler))) then
-    oEstadoControler := TEstadoControler.Create;
+  oEstado := TEstadoDTO.Create;
+
+  oEstadoControler := TEstadoControler.Create;
 end;
 
 end.

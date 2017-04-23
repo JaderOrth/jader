@@ -15,10 +15,13 @@ type
     Cadastro1: TMenuItem;
     Estado1: TMenuItem;
     Municpio1: TMenuItem;
+    actUsuario: TAction;
+    Usurio1: TMenuItem;
     procedure sctEstadoExecute(Sender: TObject);
     procedure actMunicipioExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure actUsuarioExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,7 +34,7 @@ var
 implementation
 
 uses
-  uEstado, uMunicipio;
+  uEstado, uMunicipio, uUsuario;
 
 {$R *.dfm}
 
@@ -42,6 +45,13 @@ begin
     frmMunicipio := TfrmMunicipio.Create(Self);
 
   frmMunicipio.Show;
+end;
+
+procedure TfrmPrincipal.actUsuarioExecute(Sender: TObject);
+begin
+  if (not(Assigned(frmUsuario))) then
+    frmUsuario := TfrmUsuario.Create(Self);
+  frmUsuario.Show;
 end;
 
 procedure TfrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);

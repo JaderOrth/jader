@@ -15,7 +15,10 @@ uses
   uMunicpioControler in 'uMunicpioControler.pas',
   uMunicipioModel in 'uMunicipioModel.pas',
   uListaEstado in 'uListaEstado.pas',
-  uUsuario in 'uUsuario.pas' {frmUsuario};
+  uUsuario in 'uUsuario.pas' {frmUsuario},
+  uUsuarioDTO in 'uUsuarioDTO.pas',
+  uUsuarioControler in 'uUsuarioControler.pas',
+  uUsuarioModel in 'uUsuarioModel.pas';
 
 {$R *.res}
 
@@ -23,6 +26,5 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TfrmUsuario, frmUsuario);
   Application.Run;
 end.

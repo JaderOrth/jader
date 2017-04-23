@@ -114,8 +114,8 @@ begin
 
   oMunicipioControler := TMunicipioControler.Create;
 
-  oMunicipioControler.SelecionarEstado(cmbEstado);
   oMunicipioControler.SelecionarEstado(cbmCadEstado);
+  oMunicipioControler.SelecionarEstado(cmbEstado);
 end;
 
 end.

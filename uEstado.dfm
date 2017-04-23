@@ -1,15 +1,18 @@
 inherited frmEstado: TfrmEstado
   Caption = 'Cadastro de Estados'
-  ClientWidth = 462
-  OnCreate = FormCreate
-  ExplicitWidth = 478
+  ClientHeight = 251
+  ClientWidth = 552
+  ExplicitWidth = 568
+  ExplicitHeight = 289
   PixelsPerInch = 96
   TextHeight = 18
   inherited Panel1: TPanel
-    Width = 462
+    Top = 199
+    Width = 552
+    ExplicitTop = 199
     ExplicitWidth = 462
     inherited Panel2: TPanel
-      Left = -116
+      Left = -26
       ExplicitLeft = -116
       inherited btnExcluir: TBitBtn
         OnClick = btnExcluirClick
@@ -17,13 +20,13 @@ inherited frmEstado: TfrmEstado
     end
   end
   inherited PageControl1: TPageControl
-    Width = 462
+    Width = 552
+    Height = 199
     ExplicitWidth = 462
+    ExplicitHeight = 199
     inherited tsListagem: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 29
       ExplicitWidth = 454
-      ExplicitHeight = 303
+      ExplicitHeight = 166
       object edtIdEstado: TLabeledEdit
         Left = 11
         Top = 40
@@ -40,6 +43,7 @@ inherited frmEstado: TfrmEstado
         Top = 104
         Width = 311
         Height = 26
+        CharCase = ecUpperCase
         EditLabel.Width = 44
         EditLabel.Height = 18
         EditLabel.Caption = 'Nome:'
@@ -50,6 +54,7 @@ inherited frmEstado: TfrmEstado
         Top = 40
         Width = 127
         Height = 26
+        CharCase = ecUpperCase
         EditLabel.Width = 23
         EditLabel.Height = 18
         EditLabel.Caption = 'UF:'
@@ -57,15 +62,14 @@ inherited frmEstado: TfrmEstado
       end
     end
     inherited tsCadastro: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 29
       ExplicitWidth = 454
-      ExplicitHeight = 303
+      ExplicitHeight = 166
       object edtEstadoNome: TLabeledEdit
         Left = 19
         Top = 112
         Width = 311
         Height = 26
+        CharCase = ecUpperCase
         EditLabel.Width = 44
         EditLabel.Height = 18
         EditLabel.Caption = 'Nome:'
@@ -76,6 +80,7 @@ inherited frmEstado: TfrmEstado
         Top = 40
         Width = 127
         Height = 26
+        CharCase = ecUpperCase
         EditLabel.Width = 23
         EditLabel.Height = 18
         EditLabel.Caption = 'UF:'

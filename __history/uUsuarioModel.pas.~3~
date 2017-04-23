@@ -1,0 +1,17 @@
+unit uUsuarioModel;
+
+interface
+
+type
+  uUsuarioDTO;
+
+type
+  TUsuarioModel = class
+  public
+
+
+  end;
+
+implementation
+
+end.

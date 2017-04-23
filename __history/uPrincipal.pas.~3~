@@ -1,0 +1,70 @@
+unit uPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.Actions, Vcl.ActnList, Vcl.Menus;
+
+type
+  TfrmPrincipal = class(TForm)
+    MainMenu1: TMainMenu;
+    ActionList1: TActionList;
+    sctEstado: TAction;
+    actMunicipio: TAction;
+    Cadastro1: TMenuItem;
+    Estado1: TMenuItem;
+    Municpio1: TMenuItem;
+    actUsuario: TAction;
+    procedure sctEstadoExecute(Sender: TObject);
+    procedure actMunicipioExecute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+uses
+  uEstado, uMunicipio;
+
+{$R *.dfm}
+
+procedure TfrmPrincipal.actMunicipioExecute(Sender: TObject);
+begin
+//verefica se o formulário já esta criado, se não irá criar ele
+  if (not(Assigned(frmMunicipio))) then
+    frmMunicipio := TfrmMunicipio.Create(Self);
+
+  frmMunicipio.Show;
+end;
+
+procedure TfrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+ if (Assigned(frmEstado)) then
+    frmEstado.Close;
+ if (Assigned(frmMunicipio)) then
+    frmMunicipio.Close;
+end;
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+begin
+  ReportMemoryLeaksOnShutdown := true;
+end;
+
+procedure TfrmPrincipal.sctEstadoExecute(Sender: TObject);
+begin
+//verefica se o formulário já esta criado, se não irá criar ele
+  if (not(Assigned(frmEstado))) then
+    frmEstado := TfrmEstado.Create(Self);
+
+  frmEstado.Show;
+end;
+
+end.

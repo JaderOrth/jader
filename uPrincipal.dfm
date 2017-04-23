@@ -30,6 +30,9 @@ object frmPrincipal: TfrmPrincipal
       object Municpio1: TMenuItem
         Action = actMunicipio
       end
+      object Usurio1: TMenuItem
+        Action = actUsuario
+      end
     end
   end
   object ActionList1: TActionList
@@ -42,6 +45,10 @@ object frmPrincipal: TfrmPrincipal
     object actMunicipio: TAction
       Caption = 'Munic'#237'pio'
       OnExecute = actMunicipioExecute
+    end
+    object actUsuario: TAction
+      Caption = 'Usu'#225'rio'
+      OnExecute = actUsuarioExecute
     end
   end
 end

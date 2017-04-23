@@ -1,0 +1,46 @@
+unit uUsuario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadastroBase, Vcl.ComCtrls,
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TfrmUsuario = class(TfrmBase)
+    LabeledEdit1: TLabeledEdit;
+    LabeledEdit2: TLabeledEdit;
+    LabeledEdit3: TLabeledEdit;
+    LabeledEdit4: TLabeledEdit;
+    LabeledEdit6: TLabeledEdit;
+    LabeledEdit7: TLabeledEdit;
+    LabeledEdit8: TLabeledEdit;
+    LabeledEdit9: TLabeledEdit;
+    LabeledEdit10: TLabeledEdit;
+    LabeledEdit11: TLabeledEdit;
+    LabeledEdit12: TLabeledEdit;
+    dtpDataNascimento: TDateTimePicker;
+    cmbEstado: TComboBox;
+    cmbMunicipio: TComboBox;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmUsuario: TfrmUsuario;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmUsuario.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+  frmUsuario := nil;
+end;
+
+end.

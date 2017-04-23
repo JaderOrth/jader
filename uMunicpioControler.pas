@@ -67,7 +67,7 @@ begin
   cmbEstado.Items.Clear;
   oEstadoModel := TEstadoModel.Create;
   try
-    oListaEstado := TListaEstado.Create([doOwnsValues]);//[doOwnsValues]
+    oListaEstado := TListaEstado.Create([doOwnsValues]);
 
     if (oEstadoModel.SelecionarEstado(oListaEstado)) then
     begin

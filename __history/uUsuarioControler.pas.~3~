@@ -1,0 +1,21 @@
+unit uUsuarioControler;
+
+interface
+
+uses
+  System.SysUtils,
+  uUsuarioModel;
+
+
+type
+  TUsuarioControler = class
+  private
+
+
+  public
+
+  end;
+
+implementation
+
+end.

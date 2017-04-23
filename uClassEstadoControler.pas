@@ -3,7 +3,7 @@ unit uClassEstadoControler;
 interface
 
 uses
-  System.sysUtils,
+  System.sysUtils, Vcl.Dialogs, Vcl.ExtCtrls, System.UITypes,
   uClassEstadoModel, uEstadoDTO;
 
 type
@@ -42,20 +42,36 @@ end;
 
 function TEstadoControler.Excluir(const idEstado: Integer): Boolean;
 begin
-  Result := oEstadoModel.Excluir(idEstado);
+  Result := false;
+  if idEstado <> 0 then
+   begin
+     if(MessageDlg('Deseja realmente excluir?', mtConfirmation, mbYesNo, 0) <> 0) then
+     begin
+       Result := oEstadoModel.Excluir(idEstado);
+     end;
+   end;
 end;
 
 function TEstadoControler.Salvar(const AEstado: TEstadoDTO): Boolean;
 begin
-  if (AEstado.IdEstado > 0) then
+  if (Length(AEstado.UF) = 2) AND (Length(AEstado.Nome) > 4 ) then
   begin
-    Result := oEstadoModel.Update(AEstado);
+    if (AEstado.IdEstado > 0) then
+    begin
+      if (not(oEstadoModel.Update(AEstado))) then
+        raise Exception.Create('Erro na alteração do Estado!');
+      Result := true;
+    end
+    else
+    begin
+      AEstado.IdEstado := oEstadoModel.BuscarID;
+      if (not(oEstadoModel.Insert(AEstado))) then
+        raise Exception.Create('Erro no cadastrado do Estado!');
+      Result := true;
+    end;
   end
   else
-  begin
-    AEstado.IdEstado := oEstadoModel.BuscarID;
-    Result := oEstadoModel.Insert(AEstado);
-  end;
+    raise Exception.Create('Preencha os campos corretamente!');
 end;
 
 end.
