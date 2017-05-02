@@ -1,26 +1,22 @@
 inherited frmMunicipio: TfrmMunicipio
   Caption = 'Cadastro de Municipios'
-  ClientWidth = 655
-  ExplicitWidth = 671
+  ClientWidth = 483
+  ExplicitWidth = 499
   PixelsPerInch = 96
   TextHeight = 18
   inherited Panel1: TPanel
-    Width = 655
-    ExplicitWidth = 655
+    Width = 483
+    ExplicitWidth = 483
     inherited Panel2: TPanel
-      Left = 77
-      ExplicitLeft = 77
+      Left = -95
+      ExplicitLeft = -95
     end
   end
   inherited PageControl1: TPageControl
-    Width = 655
-    ActivePage = tsCadastro
-    ExplicitWidth = 655
+    Width = 483
+    ExplicitWidth = 483
     inherited tsListagem: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 29
-      ExplicitWidth = 647
-      ExplicitHeight = 303
+      ExplicitWidth = 475
       object Label1: TLabel
         Left = 19
         Top = 189
@@ -88,10 +84,7 @@ inherited frmMunicipio: TfrmMunicipio
       end
     end
     inherited tsCadastro: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 29
-      ExplicitWidth = 647
-      ExplicitHeight = 303
+      ExplicitWidth = 475
       object Label2: TLabel
         Left = 27
         Top = 195

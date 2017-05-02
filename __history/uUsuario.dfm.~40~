@@ -192,6 +192,7 @@ inherited frmUsuario: TfrmUsuario
         Width = 277
         Height = 26
         TabOrder = 12
+        OnExit = cmbEstadoExit
       end
       object cmbMunicipio: TComboBox
         Left = 332
@@ -233,7 +234,6 @@ inherited frmUsuario: TfrmUsuario
         Width = 277
         Height = 26
         TabOrder = 0
-        OnEnter = cmbCadMunicipioEnter
       end
       object edtCadComplementos: TLabeledEdit
         Left = 340

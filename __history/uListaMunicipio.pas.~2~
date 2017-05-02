@@ -1,0 +1,12 @@
+unit uListaMunicipio;
+
+interface
+
+uses
+  System.Generics.Collections,
+
+type
+  TListaMunicipio
+implementation
+
+end.

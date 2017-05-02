@@ -93,7 +93,6 @@ begin
   Result := false;
   oQuery := TFDQuery.Create(nil);
   try
-    oQuery.Connection := TConexaoSongleton.GetConexao;
     oQuery.Open('select idMunicipio, Nome, codigoIBGE, CEP, DDD' +
       ' from Municipio where IDEstado = ' + IntToStr(iId));
     if (not(oQuery.IsEmpty)) then
@@ -109,14 +108,12 @@ begin
         oMunicipioDTO.DDD := oQuery.FieldByName('DDD').AsInteger;
         oMunicipioDTO.Estado := oQuery.FieldByName('IDEstado').AsInteger;
 
-         ALista.Add(oMunicipioDTO.Nome, oMunicipioDTO);
+
         oQuery.Next
       end;
-      Result := true;
     end;
   finally
-    if (Assigned(oQuery)) then
-      FreeAndNil(oQuery);
+
   end;
 
 end;

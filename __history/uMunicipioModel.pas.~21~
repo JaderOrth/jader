@@ -112,11 +112,9 @@ begin
          ALista.Add(oMunicipioDTO.Nome, oMunicipioDTO);
         oQuery.Next
       end;
-      Result := true;
     end;
   finally
-    if (Assigned(oQuery)) then
-      FreeAndNil(oQuery);
+
   end;
 
 end;

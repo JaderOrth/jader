@@ -109,14 +109,12 @@ begin
         oMunicipioDTO.DDD := oQuery.FieldByName('DDD').AsInteger;
         oMunicipioDTO.Estado := oQuery.FieldByName('IDEstado').AsInteger;
 
-         ALista.Add(oMunicipioDTO.Nome, oMunicipioDTO);
+
         oQuery.Next
       end;
-      Result := true;
     end;
   finally
-    if (Assigned(oQuery)) then
-      FreeAndNil(oQuery);
+
   end;
 
 end;

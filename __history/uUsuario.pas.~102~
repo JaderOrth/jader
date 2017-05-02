@@ -90,12 +90,7 @@ var
 begin
   inherited;
   iId := integer(cmbCadEstado.Items.Objects[cmbCadEstado.ItemIndex]);
-  if (iId <> 0) then
-  begin
-    oUsuarioControler.SelectMunicipio(cmbCadMunicipio, iId);
-  end
-  else
-    raise Exception.Create('Selecione o Estado Primeiro!');
+  oUsuarioControler.SelectMunicipio(cmbCadMunicipio, iId);
 end;
 
 procedure TfrmUsuario.FormClose(Sender: TObject; var Action: TCloseAction);

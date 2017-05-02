@@ -59,21 +59,21 @@ end;
 
 procedure TfrmMunicipio.btnExcluirClick(Sender: TObject);
 begin
+  inherited;
   oMunicipioDTO.idMunicipio := StrToInt(edtIdMunicipio.Text);
   if (oMunicipioControler.Deletar(oMunicipioDTO.idMunicipio)) then
     ShowMessage('Excluido com sucesso!');
-  inherited;
 end;
 
 procedure TfrmMunicipio.btnSalvarClick(Sender: TObject);
 begin
+  inherited;
   oMunicipioDTO.Nome := edtCadNome.Text;
   oMunicipioDTO.CodigoIBGE := StrToIntDef(edtCadCodigoIBGE.Text, 0);
   oMunicipioDTO.CEP := StrToCurrDef(edtCadCEP.Text, 0);
   oMunicipioDTO.DDD := StrToIntDef(edtCadDDD.Text, 0);
   oMunicipioDTO.Estado := Integer(cbmCadEstado.Items.Objects[cbmCadEstado.ItemIndex]);
   oMunicipioControler.Salvar(oMunicipioDTO);
-  inherited;
 end;
 
 procedure TfrmMunicipio.edtIdMunicipioExit(Sender: TObject);

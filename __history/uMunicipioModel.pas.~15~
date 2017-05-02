@@ -90,33 +90,19 @@ var
   oQuery: TFDQuery;
   oMunicipioDTO: TMunicipioDTO;
 begin
-  Result := false;
-  oQuery := TFDQuery.Create(nil);
   try
-    oQuery.Connection := TConexaoSongleton.GetConexao;
-    oQuery.Open('select idMunicipio, Nome, codigoIBGE, CEP, DDD' +
+    oQuery := TFDQuery.Create(nil);
+    oQuery.Open('select idMunicipio, nome, codigoIBGE, CEP, DDD' +
       ' from Municipio where IDEstado = ' + IntToStr(iId));
     if (not(oQuery.IsEmpty)) then
     begin
-      oQuery.First;
       while (not(oQuery.Eof)) do
       begin
         oMunicipioDTO := TMunicipioDTO.Create;
-        oMunicipioDTO.idMunicipio := oQuery.FieldByName('idMunicipio').AsInteger;
-        oMunicipioDTO.Nome := oQuery.FieldByName('Nome').AsString;
-        oMunicipioDTO.CodigoIBGE := oQuery.FieldByName('CodigoIBGE').AsInteger;
-        oMunicipioDTO.CEP := oQuery.FieldByName('CEP').AsCurrency;
-        oMunicipioDTO.DDD := oQuery.FieldByName('DDD').AsInteger;
-        oMunicipioDTO.Estado := oQuery.FieldByName('IDEstado').AsInteger;
-
-         ALista.Add(oMunicipioDTO.Nome, oMunicipioDTO);
-        oQuery.Next
       end;
-      Result := true;
     end;
   finally
-    if (Assigned(oQuery)) then
-      FreeAndNil(oQuery);
+
   end;
 
 end;

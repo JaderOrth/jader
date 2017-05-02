@@ -19,7 +19,6 @@ inherited frmUsuario: TfrmUsuario
   inherited PageControl1: TPageControl
     Width = 836
     Height = 362
-    ActivePage = tsCadastro
     ExplicitWidth = 836
     ExplicitHeight = 362
     inherited tsListagem: TTabSheet
@@ -199,6 +198,7 @@ inherited frmUsuario: TfrmUsuario
         Width = 277
         Height = 26
         TabOrder = 13
+        OnClick = cmbMunicipioClick
       end
     end
     inherited tsCadastro: TTabSheet
@@ -233,7 +233,6 @@ inherited frmUsuario: TfrmUsuario
         Width = 277
         Height = 26
         TabOrder = 0
-        OnEnter = cmbCadMunicipioEnter
       end
       object edtCadComplementos: TLabeledEdit
         Left = 340

@@ -6,20 +6,19 @@ inherited frmMunicipio: TfrmMunicipio
   TextHeight = 18
   inherited Panel1: TPanel
     Width = 655
-    ExplicitWidth = 655
+    ExplicitWidth = 483
     inherited Panel2: TPanel
       Left = 77
-      ExplicitLeft = 77
+      ExplicitLeft = -95
     end
   end
   inherited PageControl1: TPageControl
     Width = 655
-    ActivePage = tsCadastro
-    ExplicitWidth = 655
+    ExplicitWidth = 483
     inherited tsListagem: TTabSheet
       ExplicitLeft = 4
       ExplicitTop = 29
-      ExplicitWidth = 647
+      ExplicitWidth = 475
       ExplicitHeight = 303
       object Label1: TLabel
         Left = 19
@@ -88,10 +87,7 @@ inherited frmMunicipio: TfrmMunicipio
       end
     end
     inherited tsCadastro: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 29
-      ExplicitWidth = 647
-      ExplicitHeight = 303
+      ExplicitWidth = 475
       object Label2: TLabel
         Left = 27
         Top = 195

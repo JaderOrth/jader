@@ -12,8 +12,8 @@ type
   private
     oUsuarioModel: TUsuarioModel;
   public
-    procedure SelectMunicipio(cbMunicpio: TComboBox; iId: Integer);
-    procedure SelectEstado(cbEstado: TComboBox);
+   // procedure SelectMunicipio(cbMunicpio: TComboBox; iId: Integer);
+   // procedure SelectEstado(cbEstado: TComboBox);
 
     constructor Create;
     destructor Destroy; override;
@@ -35,7 +35,7 @@ begin
   inherited;
 end;
 
-procedure TUsuarioControler.SelectEstado(cbEstado: TComboBox);
+{procedure TUsuarioControler.SelectEstado(cbEstado: TComboBox);
 var
   oListaEstado: TListaEstado;
   oEstadoDTO: TEstadoDTO;
@@ -46,7 +46,7 @@ begin
   try
     oListaEstado := TListaEstado.Create([doOwnsValues]);
 
-    if (oEstadoModel.SelectEstado(oListaEstado)) then
+    if (oEstadoModel.SelecionarEstado(oListaEstado)) then
     begin
       for oEstadoDTO in oListaEstado.Values do
       begin
@@ -62,9 +62,9 @@ begin
     if (Assigned(oListaEstado)) then
       FreeAndNil(oListaEstado);
   end;
-end;
+end; }
 
-
+{
 procedure TUsuarioControler.SelectMunicipio(cbMunicpio: TComboBox;
   iId: Integer);
 var
@@ -72,7 +72,6 @@ var
   oMunicipioDTO: TMunicipioDTO;
   oMunicipioModel: TMunicipioModel;
 begin
-
   cbMunicpio.Items.Clear;
   oMunicipioModel := TMunicipioModel.Create;
 
@@ -86,7 +85,6 @@ begin
           TObject(oMunicipioDTO.idMunicipio));
       end;
     end;
-
   finally
     if (Assigned(oMunicipioModel)) then
       FreeAndNil(oMunicipioModel);
@@ -95,6 +93,7 @@ begin
       FreeAndNil(oListaMunicipio);
 
   end;
-end;
+
+end; }
 
 end.
