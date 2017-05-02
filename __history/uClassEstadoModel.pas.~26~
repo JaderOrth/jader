@@ -16,7 +16,6 @@ type
     function Excluir(const idEstado: Integer): Boolean;
 
     function SelecionarEstado(out ALista: TListaEstado): Boolean;
-    function SelectEstado(out ALista: TListaEstado): Boolean;
   end;
 
 implementation
@@ -111,46 +110,11 @@ begin
   finally
     if (Assigned(oQuery)) then
       FreeAndNil(oQuery);
-    // if (Assigned(oEstadoDTO)) then
-    // FreeAndNil(oEstadoDTO);
-  end;
-
-end;
-
-function TEstadoModel.SelectEstado(out ALista: TListaEstado): Boolean;
-var
-  oQuery: TFDQuery;
-  oEstadoDTO: TEstadoDTO;
-begin
-  Result := False;
-  oQuery := TFDQuery.Create(nil);
-  try
-    oQuery.Connection := TConexaoSongleton.GetConexao;
-    oQuery.Open('SELECT idEstado, UF, Nome FROM Estado');
-    if (not(oQuery.IsEmpty)) then // verefica se a query não está vazia
-    begin
-      oQuery.First; // vai para o primeiro registro do banco
-      while (not(oQuery.Eof)) do
-      // vai parar quando estiver no ultimo registro EOF(ultimo registro do banco)
-      begin
-        oEstadoDTO := TEstadoDTO.Create;
-        oEstadoDTO.idEstado := oQuery.FieldByName('idEstado').AsInteger;
-        oEstadoDTO.UF := oQuery.FieldByName('UF').AsString;
-        oEstadoDTO.Nome := oQuery.FieldByName('Nome').AsString;
-        // incrementa o ComboBox a cada volta do loop.
-        ALista.Add(oEstadoDTO.Nome, oEstadoDTO);
-        // vai para o proximo registro do banco de dados
-        oQuery.Next;
-      end;
-      Result := true;
-    end;
-  finally
-    if (Assigned(oQuery)) then
-      FreeAndNil(oQuery);
    // if (Assigned(oEstadoDTO)) then
    //   FreeAndNil(oEstadoDTO);
   end;
 
+  
 end;
 
 function TEstadoModel.Update(const AEstado: TEstadoDTO): Boolean;

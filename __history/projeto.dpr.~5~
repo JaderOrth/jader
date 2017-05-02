@@ -18,8 +18,7 @@ uses
   uUsuario in 'uUsuario.pas' {frmUsuario},
   uUsuarioDTO in 'uUsuarioDTO.pas',
   uUsuarioControler in 'uUsuarioControler.pas',
-  uUsuarioModel in 'uUsuarioModel.pas',
-  uListaMunicipio in 'uListaMunicipio.pas';
+  uUsuarioModel in 'uUsuarioModel.pas';
 
 {$R *.res}
 

@@ -47,6 +47,8 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
+    procedure cmbMunicipioClick(Sender: TObject);
+    procedure ValidarEstado(AId: Integer);
     procedure cmbCadMunicipioEnter(Sender: TObject);
   private
     oUsuarioDTO: TUsuarioDTO;
@@ -90,12 +92,20 @@ var
 begin
   inherited;
   iId := integer(cmbCadEstado.Items.Objects[cmbCadEstado.ItemIndex]);
-  if (iId <> 0) then
+end;
+
+procedure TfrmUsuario.cmbMunicipioClick(Sender: TObject);
+begin
+  inherited;
+  iId := integer(cmbCadEstado.Items.Objects[cmbCadEstado.ItemIndex]);
+  if (iId = 0) then
   begin
-    oUsuarioControler.SelectMunicipio(cmbCadMunicipio, iId);
+    raise Exception.Create('Selecione um Estado Primeiro!');
   end
   else
-    raise Exception.Create('Selecione o Estado Primeiro!');
+  begin
+    ValidarEstado(iId);
+  end;
 end;
 
 procedure TfrmUsuario.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -124,4 +134,10 @@ begin
   oUsuarioControler.SelectEstado(cmbEstado);
   oUsuarioControler.SelectEstado(cmbCadEstado);
 end;
+
+procedure TfrmUsuario.ValidarEstado(AId: Integer);
+begin
+  oUsuarioControler.SelectMunicipio(cmbCadMunicipio, AId);
+end;
+
 end.

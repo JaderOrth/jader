@@ -1,4 +1,3 @@
-{aqui vou escrever um texto para testar como funciona os commit e brach}
 unit uUsuarioControler;
 
 interface
@@ -73,7 +72,6 @@ var
   oMunicipioDTO: TMunicipioDTO;
   oMunicipioModel: TMunicipioModel;
 begin
-
   cbMunicpio.Items.Clear;
   oMunicipioModel := TMunicipioModel.Create;
 
@@ -87,7 +85,6 @@ begin
           TObject(oMunicipioDTO.idMunicipio));
       end;
     end;
-
   finally
     if (Assigned(oMunicipioModel)) then
       FreeAndNil(oMunicipioModel);
@@ -96,6 +93,7 @@ begin
       FreeAndNil(oListaMunicipio);
 
   end;
+
 end;
 
 end.

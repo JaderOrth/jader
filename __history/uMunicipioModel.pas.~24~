@@ -14,8 +14,8 @@ type
     function Insert(const AMunicipio: TMunicipioDTO): Boolean;
     function Selecionar(var AMunicipio: TMunicipioDTO): Boolean;
     function Deletar(const AMunicipio: Integer): Boolean;
-    function SelectMunicipio(var ALista: TListaMunicipio; iId: Integer)
-      : Boolean;
+   // function SelectMunicipio(var ALista: TListaMunicipio; iId: Integer)
+     // : Boolean;
   end;
 
 implementation
@@ -84,7 +84,7 @@ begin
 
 end;
 
-function TMunicipioModel.SelectMunicipio(var ALista: TListaMunicipio;
+{function TMunicipioModel.SelectMunicipio(var ALista: TListaMunicipio;
   iId: Integer): Boolean;
 var
   oQuery: TFDQuery;
@@ -119,7 +119,7 @@ begin
       FreeAndNil(oQuery);
   end;
 
-end;
+end; }
 
 function TMunicipioModel.Update(const AMunicipio: TMunicipioDTO): Boolean;
 var

@@ -1,4 +1,3 @@
-{aqui vou escrever um texto para testar como funciona os commit e brach}
 unit uUsuarioControler;
 
 interface
@@ -73,28 +72,30 @@ var
   oMunicipioDTO: TMunicipioDTO;
   oMunicipioModel: TMunicipioModel;
 begin
+  if (iId <> 0) then
+  begin
+    cbMunicpio.Items.Clear;
+    oMunicipioModel := TMunicipioModel.Create;
 
-  cbMunicpio.Items.Clear;
-  oMunicipioModel := TMunicipioModel.Create;
-
-  try
-    oListaMunicipio := TListaMunicipio.Create([doOwnsValues]);
-    if (oMunicipioModel.SelectMunicipio(oListaMunicipio, iId)) then
-    begin
-      for oMunicipioDTO in oListaMunicipio.Values do
+    try
+      oListaMunicipio := TListaMunicipio.Create([doOwnsValues]);
+      if (oMunicipioModel.SelectMunicipio(oListaMunicipio, iId)) then
       begin
-        cbMunicpio.Items.AddObject(oMunicipioDTO.Nome,
-          TObject(oMunicipioDTO.idMunicipio));
+        for oMunicipioDTO in oListaMunicipio.Values do
+        begin
+          cbMunicpio.Items.AddObject(oMunicipioDTO.Nome,
+            TObject(oMunicipioDTO.idMunicipio));
+        end;
       end;
+
+    finally
+      if (Assigned(oMunicipioModel)) then
+        FreeAndNil(oMunicipioModel);
+
+      if (Assigned(oListaMunicipio)) then
+        FreeAndNil(oListaMunicipio);
+
     end;
-
-  finally
-    if (Assigned(oMunicipioModel)) then
-      FreeAndNil(oMunicipioModel);
-
-    if (Assigned(oListaMunicipio)) then
-      FreeAndNil(oListaMunicipio);
-
   end;
 end;
 

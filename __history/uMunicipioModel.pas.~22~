@@ -115,8 +115,7 @@ begin
       Result := true;
     end;
   finally
-    if (Assigned(oQuery)) then
-      FreeAndNil(oQuery);
+
   end;
 
 end;

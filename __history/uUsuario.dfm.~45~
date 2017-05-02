@@ -199,6 +199,7 @@ inherited frmUsuario: TfrmUsuario
         Width = 277
         Height = 26
         TabOrder = 13
+        OnClick = cmbMunicipioClick
       end
     end
     inherited tsCadastro: TTabSheet
@@ -233,7 +234,6 @@ inherited frmUsuario: TfrmUsuario
         Width = 277
         Height = 26
         TabOrder = 0
-        OnEnter = cmbCadMunicipioEnter
       end
       object edtCadComplementos: TLabeledEdit
         Left = 340
